@@ -1,9 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ItemDescription">
 
-</android.support.constraint.ConstraintLayout>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circleImg_description"
+        android:layout_gravity="center"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="3"
+        android:gravity="center">
+
+        <TextView
+            android:text="Item Name:"
+            android:layout_gravity="center"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"/>
+        <TextView
+            android:id="@+id/tvItemName_description"
+            android:layout_gravity="center"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"/>
+        <TextView
+            android:text="Price:"
+            android:layout_gravity="center"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"/>
+        <TextView
+            android:id="@+id/tvPrice_description"
+            android:layout_gravity="center"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"/>
+        <TextView
+            android:text="Description:"
+            android:layout_gravity="center"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"/>
+        <TextView
+            android:id="@+id/tvDescription_description"
+            android:layout_gravity="center"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"/>
+
+
+    </GridLayout>
+
+</LinearLayout>

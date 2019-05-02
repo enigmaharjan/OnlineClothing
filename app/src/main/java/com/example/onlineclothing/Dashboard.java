@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -14,12 +15,14 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class Dashboard extends AppCompatActivity {
     private RecyclerView recyclerView;
-//    private Map<>
+    List<Clothes> clothesList = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +34,9 @@ public class Dashboard extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
 
         ReadItem();
-
-        List<Clothes> clothesList = null;
         ClothesAdapter clothesAdapter = new ClothesAdapter(this, clothesList);
+        recyclerView.setAdapter(clothesAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +56,7 @@ public class Dashboard extends AppCompatActivity {
             String line = "";
             while ((line=br.readLine())!=null){
                 String[] parts = line.split("->");
-
+                clothesList.add(new Clothes(parts[0],parts[1],parts[2],Integer.parseInt(parts[3])));
             }
         }
         catch (IOException e){

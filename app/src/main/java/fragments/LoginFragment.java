@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.onlineclothing.Dashboard;
 import com.example.onlineclothing.MainActivity;
 import com.example.onlineclothing.R;
 
@@ -58,7 +59,7 @@ public class LoginFragment extends Fragment {
                 password.equals(etPassword.getText().toString())){
             Toast.makeText(getActivity(), "Login Successful", Toast.LENGTH_SHORT).show();
 
-            Intent i = new Intent(getContext(), MainActivity.class);
+            Intent i = new Intent(getContext(), Dashboard.class);
             startActivity(i);
 
 

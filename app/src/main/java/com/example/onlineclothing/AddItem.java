@@ -41,7 +41,7 @@ public class AddItem extends AppCompatActivity {
     private void SaveItem() {
         try{
             PrintStream printStream = new PrintStream(openFileOutput("items.txt", MODE_PRIVATE| MODE_APPEND));
-            printStream.println(etItemName.getText().toString()+"->"+etItemPrice.getText().toString()+"->"+etItemDescription.getText().toString()+"->"+ ivView.getDrawable().toString());
+            printStream.println(etItemName.getText().toString()+"->"+etItemPrice.getText().toString()+"->"+etItemDescription.getText().toString()+"->"+"123");
             Toast.makeText(this, "Item Saved", Toast.LENGTH_LONG).show();
         }
         catch (IOException e){

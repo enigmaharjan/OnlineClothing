@@ -14,7 +14,7 @@ class Clothes {
     }
 
     public int getImage() {
-        return image;
+        return R.drawable.noavatar;
     }
 
     public void setImage(int image) {
