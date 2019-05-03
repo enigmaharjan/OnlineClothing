@@ -36,12 +36,22 @@ public class AddItem extends AppCompatActivity {
                 SaveItem();
             }
         });
+
     }
 
     private void SaveItem() {
+        if(etItemName.getText().toString().equals("shirt")){
+            ivView.setImageResource(R.drawable.noavatar);
+        }
+        else if(etItemName.getText().toString().equals("pant")){
+            ivView.setImageResource(R.drawable.pant);
+        }
+        else{
+            ivView.setImageResource(R.drawable.m);
+        }
         try{
             PrintStream printStream = new PrintStream(openFileOutput("items.txt", MODE_PRIVATE| MODE_APPEND));
-            printStream.println(etItemName.getText().toString()+"->"+etItemPrice.getText().toString()+"->"+etItemDescription.getText().toString()+"->"+"123");
+            printStream.println(etItemName.getText().toString()+"->"+etItemPrice.getText().toString()+"->"+etItemDescription.getText().toString()+"->"+ivView.getId());
             Toast.makeText(this, "Item Saved", Toast.LENGTH_LONG).show();
         }
         catch (IOException e){
