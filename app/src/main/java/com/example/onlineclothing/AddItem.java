@@ -1,5 +1,6 @@
 package com.example.onlineclothing;
 
+import android.content.Intent;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,13 @@ public class AddItem extends AppCompatActivity {
     private Button btnAddItem, btnReset;
 
     @Override
+    public void onBackPressed() {
+        Intent i = new Intent(this, Dashboard.class);
+        startActivity(i);
+        finish();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
@@ -34,16 +42,28 @@ public class AddItem extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SaveItem();
+                Intent i = new Intent(getBaseContext(), Dashboard.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getBaseContext(), Dashboard.class);
+                startActivity(i);
+                finish();
             }
         });
 
     }
 
     private void SaveItem() {
-        if(etItemName.getText().toString().equals("shirt")){
+        if(etItemName.getText().toString().equals("shirt")||etItemName.getText().toString().equals("Shirt")||etItemName.getText().toString().equals("t-shirt")||etItemName.getText().toString().equals("T-Shirt")){
             ivView.setImageResource(R.drawable.noavatar);
         }
-        else if(etItemName.getText().toString().equals("pant")){
+        else if(etItemName.getText().toString().equals("pant")||etItemName.getText().toString().equals("Pant")){
             ivView.setImageResource(R.drawable.pant);
         }
         else{

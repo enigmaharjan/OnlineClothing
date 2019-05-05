@@ -7,8 +7,7 @@
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imgItemPic"
         android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/noavatar"/>
+        android:layout_height="100dp"/>
 
     <TextView
         android:id="@+id/tvItemName"
@@ -17,8 +16,11 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_toEndOf="@id/imgItemPic"
+        android:fontFamily="sans-serif-black"
+        android:textColor="#2BB4DB"
+        android:textAllCaps="true"
         android:hint="Item Name"
-        android:textSize="20sp"/>
+        android:textSize="40sp"/>
 
 
 </RelativeLayout>

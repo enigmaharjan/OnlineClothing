@@ -5,40 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AddItem"
-    >
+    tools:context=".AddItem">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#2BB4DB"
+        android:elevation="4dp"
+        app:title="Add Item"
+        app:titleTextColor="#FFFFFF"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
-    <EditText
-        android:id="@+id/etItemName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Item"
-        android:textAlignment="center"
-        />
-    <EditText
-        android:id="@+id/etItemPrice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Price"
-        android:inputType="number"
-        android:textAlignment="center"
-        />
     <ImageView
         android:id="@+id/ivImage"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        />
+    <EditText
+        android:id="@+id/etItemName"
+        android:hint="Enter Item"
+        style="@style/addItem"
+        android:inputType="text"
+        android:textAllCaps="true"
+        />
+    <EditText
+        android:id="@+id/etItemPrice"
+        android:hint="Enter Price"
+        style="@style/addItem"
+        />
+
     <EditText
         android:id="@+id/etItemDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Item"
-        android:textAlignment="center"
+        android:hint="Enter Description"
+        style="@style/addItem"
         />
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp">
 
         <Button
             android:id="@+id/btnAdd"

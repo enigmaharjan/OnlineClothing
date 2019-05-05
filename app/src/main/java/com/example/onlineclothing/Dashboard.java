@@ -1,9 +1,11 @@
 package com.example.onlineclothing;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,7 +24,6 @@ import java.util.Map;
 public class Dashboard extends AppCompatActivity {
     private RecyclerView recyclerView;
     List<Clothes> clothesList = new ArrayList<>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +45,11 @@ public class Dashboard extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), AddItem.class);
                 startActivity(i);
+                finish();
             }
         });
+
+
     }
 
     private void ReadItem() {
@@ -56,7 +60,7 @@ public class Dashboard extends AppCompatActivity {
             String line = "";
             while ((line=br.readLine())!=null){
                 String[] parts = line.split("->");
-                clothesList.add(new Clothes(parts[0],parts[1],parts[2],Integer.parseInt(parts[3])));
+                clothesList.add(new Clothes(parts[0],parts[1],parts[2],1));
             }
         }
         catch (IOException e){

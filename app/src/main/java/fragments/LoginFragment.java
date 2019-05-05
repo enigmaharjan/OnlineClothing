@@ -44,26 +44,33 @@ public class LoginFragment extends Fragment {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    CheckUser();
+                    if(CheckUser()){
+                        Toast.makeText(getActivity(), "Login Successful", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(getContext(), Dashboard.class);
+                        getActivity().startActivity(i);
+                        getActivity().finish();
+                    }
+                    else {
+                        Toast.makeText(getActivity(), "Please Check Your Username and Password", Toast.LENGTH_SHORT).show();
+                    }
             }
         });
         return view;
+
     }
 
-    private void CheckUser() {
+
+    private boolean CheckUser() {
+        boolean flag = false;
         SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("User", Context.MODE_PRIVATE);
         String username = sharedPreferences.getString("username","");
         String password = sharedPreferences.getString("password","");
 
         if(username.equals(etUsername.getText().toString()) &&
                 password.equals(etPassword.getText().toString())){
-            Toast.makeText(getActivity(), "Login Successful", Toast.LENGTH_SHORT).show();
-
-            Intent i = new Intent(getContext(), Dashboard.class);
-            startActivity(i);
-
-
+            flag = true;
         }
+        return flag;
 
     }
 

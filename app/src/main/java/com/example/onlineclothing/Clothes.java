@@ -14,7 +14,17 @@ class Clothes {
     }
 
     public int getImage() {
-        return R.drawable.noavatar;
+        if(this.itemName.equals("pant")||this.itemName.equals("Pant"))
+        {
+            return R.drawable.pant;
+        }
+        else if (this.itemName.equals("shirt")||this.itemName.equals("Shirt")||this.itemName.equals("t-shirt")||this.itemName.equals("T-Shirt"))
+        {
+            return R.drawable.noavatar;
+        }
+        else {
+            return R.drawable.m;
+        }
     }
 
     public void setImage(int image) {
